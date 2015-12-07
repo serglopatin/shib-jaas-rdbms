@@ -1,5 +1,5 @@
 # shib-jaas-rdbms
-##JAAS RDBMS authentication module for Shibboleth Identity Provider with python hash verification
+JAAS RDBMS authentication module for Shibboleth Identity Provider with python hash verification
 
 ##Requirements
 - Shibboleth Identity Provider 3+
@@ -27,13 +27,13 @@ sudo cp shibjaasrdbms.jar /opt/shibboleth-idp/webapp/WEB-INF/lib/
 sudo JAVACMD=/usr/bin/java /opt/shibboleth-idp/bin/build.sh -Didp.target.dir=/opt/shibboleth-idp
 ```
 
-Change auth method in */opt/shibboleth-idp/conf/authn/password-authn-config.xml*:
+Change auth method in **/opt/shibboleth-idp/conf/authn/password-authn-config.xml**:
 ```
 <import resource="jaas-authn-config.xml" />
 <!--<import resource="ldap-authn-config.xml" />-->
 ```
 
-Create jaas config in */opt/shibboleth-idp/conf/authn/jaas.config*:
+Create jaas config in **/opt/shibboleth-idp/conf/authn/jaas.config**:
 ```
 ShibUserPassAuth {
         com.shibjaasrdbms.ShibRdbmsLogin required
