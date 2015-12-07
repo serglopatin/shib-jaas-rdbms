@@ -48,3 +48,9 @@ sudo JAVACMD=/usr/bin/java /opt/shibboleth-idp/bin/build.sh -Didp.target.dir=/op
 sudo service tomcat7 restart
 ```
 
+## Python hash verification
+Default hash algorithms defined in hashverifier.py as:
+```
+myctx = CryptContext(schemes=["pbkdf2_sha256", "pbkdf2_sha512"])
+```
+You can change hash algorithm to any value supported by passlib.
