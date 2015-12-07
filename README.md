@@ -21,12 +21,6 @@ source venv/bin/activate
 pip install passlib
 ```
 
-Copy shibjaasrdbms.jar to shibboleth libs and rebuild war file:
-```
-sudo cp shibjaasrdbms.jar /opt/shibboleth-idp/webapp/WEB-INF/lib/
-sudo JAVACMD=/usr/bin/java /opt/shibboleth-idp/bin/build.sh -Didp.target.dir=/opt/shibboleth-idp
-```
-
 Change auth method in **/opt/shibboleth-idp/conf/authn/password-authn-config.xml**:
 ```
 <import resource="jaas-authn-config.xml" />
@@ -46,3 +40,11 @@ ShibUserPassAuth {
 };
 
 ```
+
+Copy shibjaasrdbms.jar to Shibboleth libs, rebuild war file and restart webserver:
+```
+sudo cp shibjaasrdbms.jar /opt/shibboleth-idp/webapp/WEB-INF/lib/
+sudo JAVACMD=/usr/bin/java /opt/shibboleth-idp/bin/build.sh -Didp.target.dir=/opt/shibboleth-idp
+sudo service tomcat7 restart
+```
+
